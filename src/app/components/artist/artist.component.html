@@ -32,7 +32,10 @@
                     <td><img  [src]="item.album.images | noimage" alt="" class="img-thumb" ></td>
                     <td>{{item.album.name}}</td>
                     <td>{{item.name}}</td>
-                    <td><audio [src]="" controls>{{item.preview_url}}</audio></td>
+                    <td>
+                        <!-- <audio src="{{item.preview_url}}" controls></audio> -->
+                        <iframe [src]="item.uri | domSave" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    </td>
                 </tr>
             </tbody>
         </table>
