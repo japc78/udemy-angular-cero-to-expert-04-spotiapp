@@ -15,18 +15,18 @@ export class SearchComponent {
   constructor( private spotifyService: SpotifyService ) { }
 
   search(termino: string): any {
-    this.loading = true;
-    // console.log(termino);
-    this.spotifyService.getArtists(termino)
-      .subscribe( (data: any) => {
-        // console.log(data.artists);
-        this.artists = data;
-        this.loading = false;
-      });
-
-    if (!termino) {
-        this.loading = false;
-        this.artists = [];
+    if (termino) {
+      this.loading = true;
+      // console.log(termino);
+      this.spotifyService.getArtists(termino)
+        .subscribe( (data: any) => {
+          // console.log(data);
+          this.artists = data;
+          this.loading = false;
+        });
+    } else {
+      this.loading = false;
+      this.artists = [];
     }
   }
 }
