@@ -12,7 +12,7 @@ export class SpotifyService {
   constructor(private http: HttpClient) { }
 
   getQuery(query: string): any {
-    const TOKEN = 'BQAnChk9qKSLHveWNDJu6sw2WGIX_R53iYck-2L4dK_q3AX7kokxeINrmjgoa84AD-Vw0ZlcDQQKd7GZJW4';
+    const TOKEN = 'BQAo5CBVdR9pr-5ChNlGWInVdoriN0Sx3ZdvjclNp3NkxGIrfac-WLdhm6k-tQmFbtJ2pEwNNNJ-ESb69uc';
     const url = `https://api.spotify.com/v1/${ query }`;
     const headers = new HttpHeaders ({ Authorization: `Bearer ${TOKEN}` });
     return this.http.get(url, { headers });
