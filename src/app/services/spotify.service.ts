@@ -12,7 +12,7 @@ export class SpotifyService {
   constructor(private http: HttpClient) { }
 
   getQuery(query: string): any {
-    const TOKEN = 'BQAo5CBVdR9pr-5ChNlGWInVdoriN0Sx3ZdvjclNp3NkxGIrfac-WLdhm6k-tQmFbtJ2pEwNNNJ-ESb69uc';
+    const TOKEN = 'BQBZZD5Y-Kd1QxJxp0LqROI41YXcRX_Mh4SKExeiYdpdTY2-c1b-AHXTq-9Vddk16tW2eVaSBWanYu1jkaA';
     const url = `https://api.spotify.com/v1/${ query }`;
     const headers = new HttpHeaders ({ Authorization: `Bearer ${TOKEN}` });
     return this.http.get(url, { headers });
@@ -23,8 +23,12 @@ export class SpotifyService {
       .pipe(map((data: any) => data.albums.items));
   }
 
-  getArtist(termino: string): any {
+  getArtists(termino: string): any {
     return this.getQuery(`search?q=${termino}&type=artist&limit=15`)
       .pipe(map((data: any) => data.artists.items));
+  }
+
+  getArtist(id: string): any {
+    return this.getQuery(`artists/${id}`);
   }
 }
